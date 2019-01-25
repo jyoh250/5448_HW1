@@ -1,21 +1,28 @@
+import java.util.Scanner;
+
 class Polymorph {
    public static void main(String argv[]) {
 
-      // create some shape instances
-      Shape scribble[] = new Shape[2];
-      scribble[0] = new Rectangle(10, 20, 5, 6);
-      scribble[1] = new Circle(15, 25, 8);
+   int choice;
+   Scanner keyboard = new Scanner(System.in);
+   // create some shape instances
+   Shape shapeO[] = new Shape[2];
+   shapeO[0] = new Rectangle(10, 20, 5, 6);
+   shapeO[1] = new Circle(15, 25, 8);
 
-      // iterate through the list and handle shapes polymorphically
-      for (int i = 0; i < scribble.length; i++) {
-         scribble[i].draw();
-         scribble[i].rMoveTo(100, 100);
-         scribble[i].draw();
+   while(true){
+      System.out.println("==Select shape==");
+      System.out.println("1.rectangle");
+      System.out.println("2.circle");
+      choice = keyboard.nextInt();
+
+      if(choice == 1){
+         shapeO[0].draw();
+      }else if(choice ==2){
+         shapeO[1].draw();
+      }else{
+         System.out.println("Please type number 1 or 2.");
       }
-
-      // call a rectangle specific function
-      Rectangle arect = new Rectangle(0, 0, 15, 15);
-      arect.setWidth(30);
-      arect.draw();
    }
+ }
 }
